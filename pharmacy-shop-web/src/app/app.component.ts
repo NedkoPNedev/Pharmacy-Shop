@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SampleService} from './sample.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pharmacy-shop-web';
+
+  constructor(private sampleService: SampleService) {
+  }
+
+  showInfo() {
+      this.sampleService.fetchInfo().subscribe(res => console.log(res.body));
+  }
 }
