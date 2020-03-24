@@ -1,19 +1,21 @@
 package pharmacyshop.dto;
 
 public class SampleDTO {
-    private int a;
+    private Long a;
     private String b;
 
-    public SampleDTO(int a, String b) {
+    public SampleDTO() {}
+
+    public SampleDTO(Long a, String b) {
         this.a = a;
         this.b = b;
     }
 
-    public int getA() {
+    public Long getA() {
         return a;
     }
 
-    public void setA(int a) {
+    public void setA(Long a) {
         this.a = a;
     }
 
