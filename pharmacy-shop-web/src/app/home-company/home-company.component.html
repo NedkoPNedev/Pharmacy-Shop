@@ -1,0 +1,22 @@
+<div class="jumbotron">
+
+  <h1 class="display-4" style="text-align: center">Онлайн дрогерия</h1>
+
+  <p class="lead" style="text-align: center">Тук се предлагат само лекарства без лекарско предписание.</p>
+
+  <hr class="my-4">
+
+  <div class="row" style="justify-content: space-between">
+    <div class="card" style="width: 18rem; align-content: space-between" *ngFor="let companyName of companyNames">
+      <img class="card-img-top" [src]='"assets/images/" + companyName + ".jpg"' (click)="showCompanyDetails()">
+      <hr class="my-2">
+      <div class="card-body col text-center">
+        <button class="btn btn-primary" (click)="showCompanyDetails()">Покажи инфо</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h1 style="text-align: center">Ars longa vita brevis.</h1>
+</div>

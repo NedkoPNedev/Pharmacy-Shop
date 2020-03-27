@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {SampleService} from './sample.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,6 @@ import {SampleService} from './sample.service';
 })
 export class AppComponent {
 
-  constructor(private sampleService: SampleService) {
-  }
-
-  showInfo() {
-      this.sampleService.fetchInfo().subscribe(res => console.log(res.body));
+  constructor() {
   }
 }
