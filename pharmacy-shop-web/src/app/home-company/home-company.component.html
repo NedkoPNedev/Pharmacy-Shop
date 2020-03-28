@@ -8,10 +8,10 @@
 
   <div class="row" style="justify-content: space-between">
     <div class="card" style="width: 18rem; align-content: space-between" *ngFor="let companyName of companyNames">
-      <img class="card-img-top" [src]='"assets/images/" + companyName + ".jpg"' (click)="showCompanyDetails()">
+      <img class="card-img-top" [src]='"assets/images/" + companyName + ".jpg"'>
       <hr class="my-2">
       <div class="card-body col text-center">
-        <button class="btn btn-primary" (click)="showCompanyDetails()">Покажи инфо</button>
+        <button class="btn btn-primary" (click)="showCompanyDetails(companyName)">Покажи инфо</button>
       </div>
     </div>
   </div>

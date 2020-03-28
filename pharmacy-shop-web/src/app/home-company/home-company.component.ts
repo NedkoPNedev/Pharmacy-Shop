@@ -21,7 +21,7 @@ export class HomeCompanyComponent implements OnInit {
         console.log(this.companyNames);
     }
 
-    showCompanyDetails() {
-
+    showCompanyDetails(companyName: string) {
+      this.homeCompanyService.getCompanyInfo(companyName).subscribe(res => console.log(res));
     }
 }
