@@ -1,9 +1,7 @@
 package pharmacyshop.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "pharmacy_company")
@@ -19,8 +17,10 @@ public class Company {
     @Column(name = "phone_number")
     private String companyPhoneNumber;
 
-    public Company() {
-    }
+    @OneToMany(mappedBy = "pharmCompany")
+    private Set<PharmClass> pharmClasses;
+
+    public Company() {}
 
     public String getCompanyName() {
         return companyName;
@@ -44,5 +44,13 @@ public class Company {
 
     public void setCompanyPhoneNumber(String companyPhoneNumber) {
         this.companyPhoneNumber = companyPhoneNumber;
+    }
+
+    public Set<PharmClass> getPharmClasses() {
+        return pharmClasses;
+    }
+
+    public void setPharmClasses(Set<PharmClass> pharmClasses) {
+        this.pharmClasses = pharmClasses;
     }
 }
