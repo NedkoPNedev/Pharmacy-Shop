@@ -2,8 +2,9 @@ package pharmacyshop.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,8 @@ import pharmacyshop.service.PharmShopService;
 
 @RestController
 public class PharmShopController {
+
+    private final Logger log = LoggerFactory.getLogger(PharmShopController.class);
 
     private PharmShopService pharmShopService;
 
@@ -24,13 +27,16 @@ public class PharmShopController {
     @CrossOrigin
     @GetMapping("/pharm-company-names")
     public List<String> getAllCompanyNames() {
+        log.info("Request for resource pharm-company-names");
+
         return pharmShopService.getAllCompanyNames();
     }
 
     @CrossOrigin
     @GetMapping("/company-info/{name}")
     public CompanyDTO getCompanyInfoByName(@PathVariable("name") String companyName) {
-        CompanyDTO companyDTO = pharmShopService.getCompanyInfoByName(companyName);
-        return companyDTO;
+        log.info("Request for resource company-info with parameter : " + companyName);
+
+        return pharmShopService.getCompanyInfoByName(companyName);
     }
 }
