@@ -1,33 +1,26 @@
-package pharmacyshop.entity;
+package pharmacyshop.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import pharmacyshop.entity.Medicine;
+import pharmacyshop.entity.PharmClass;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "pharmacological_class")
-public class PharmClass {
+public class PharmClassDTO {
 
-    @Id
-    @Column(name = "class_id")
     private int id;
 
-    @Column(name = "class_name")
     private String className;
 
-    @Column(name = "class_description")
     private String classDescription;
 
-    @OneToMany(mappedBy = "pharmClass")
     private Set<Medicine> medicines;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumn(name = "company_name")
-    private Company pharmCompany;
-
-    public PharmClass() {}
+    public PharmClassDTO(PharmClass pharmClass) {
+        this.id = pharmClass.getId();
+        this.className = pharmClass.getClassName();
+        this.classDescription = pharmClass.getClassDescription();
+        this.medicines = pharmClass.getMedicines();
+    }
 
     public int getId() {
         return id;
@@ -59,13 +52,5 @@ public class PharmClass {
 
     public void setMedicines(Set<Medicine> medicines) {
         this.medicines = medicines;
-    }
-
-    public Company getPharmCompany() {
-        return pharmCompany;
-    }
-
-    public void setPharmCompany(Company pharmCompany) {
-        this.pharmCompany = pharmCompany;
     }
 }

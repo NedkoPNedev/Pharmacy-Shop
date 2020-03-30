@@ -3,6 +3,7 @@ package pharmacyshop.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class PharmShopController {
     @CrossOrigin
     @GetMapping("/company-info/{name}")
     public CompanyDTO getCompanyInfoByName(@PathVariable("name") String companyName) {
-        return pharmShopService.getCompanyInfoByName(companyName);
+        CompanyDTO companyDTO = pharmShopService.getCompanyInfoByName(companyName);
+        return companyDTO;
     }
 }

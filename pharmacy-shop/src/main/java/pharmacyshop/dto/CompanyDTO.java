@@ -1,5 +1,10 @@
 package pharmacyshop.dto;
 
+import pharmacyshop.entity.Company;
+import pharmacyshop.entity.PharmClass;
+
+import java.util.Set;
+
 public class CompanyDTO {
 
     private String companyName;
@@ -8,7 +13,13 @@ public class CompanyDTO {
 
     private String companyPhoneNumber;
 
-    public CompanyDTO() {
+    private Set<PharmClass> pharmClasses;
+
+    public CompanyDTO(Company company) {
+        this.companyName = company.getCompanyName();
+        this.companyAddress = company.getCompanyAddress();
+        this.companyPhoneNumber = company.getCompanyPhoneNumber();
+        this.pharmClasses = company.getPharmClasses();
     }
 
     public String getCompanyName() {
@@ -33,5 +44,13 @@ public class CompanyDTO {
 
     public void setCompanyPhoneNumber(String companyPhoneNumber) {
         this.companyPhoneNumber = companyPhoneNumber;
+    }
+
+    public Set<PharmClass> getPharmClasses() {
+        return pharmClasses;
+    }
+
+    public void setPharmClasses(Set<PharmClass> pharmClasses) {
+        this.pharmClasses = pharmClasses;
     }
 }

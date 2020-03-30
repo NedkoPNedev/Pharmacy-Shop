@@ -25,6 +25,7 @@ public class PharmShopService {
     public CompanyDTO getCompanyInfoByName(String name) {
         Company company = companyRepository.findCompanyInfoByCompanyName(name);
 
-        return new CompanyDTO();
+        CompanyDTO companyDTO = new CompanyDTO(company);
+        return companyDTO;
     }
 }

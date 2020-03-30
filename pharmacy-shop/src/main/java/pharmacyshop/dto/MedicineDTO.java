@@ -1,32 +1,24 @@
-package pharmacyshop.entity;
+package pharmacyshop.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
+import pharmacyshop.entity.Medicine;
 
-@Entity
-@Table(name = "medicine")
-public class Medicine {
+public class MedicineDTO {
 
-    @Column(name = "inn")
     private String INN;
 
-    @Id
-    @Column(name = "trademark")
     private String trademark;
 
-    @Column(name = "pharmacological_effect")
     private String pharmacologicalEffect;
 
-    @Column(name = "price")
     private Double medicinePrice;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumn(name = "pharmacological_class_id")
-    private PharmClass pharmClass;
-
-    public Medicine() {}
+    public MedicineDTO(Medicine medicine) {
+        this.INN = medicine.getINN();
+        this.trademark = medicine.getTrademark();
+        this.pharmacologicalEffect = medicine.getPharmacologicalEffect();
+        this.medicinePrice = medicine.getMedicinePrice();
+    }
 
     public String getINN() {
         return INN;
@@ -58,13 +50,5 @@ public class Medicine {
 
     public void setMedicinePrice(Double medicinePrice) {
         this.medicinePrice = medicinePrice;
-    }
-
-    public PharmClass getPharmClass() {
-        return pharmClass;
-    }
-
-    public void setPharmClass(PharmClass pharmClass) {
-        this.pharmClass = pharmClass;
     }
 }
