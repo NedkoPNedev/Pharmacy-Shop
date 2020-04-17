@@ -6,3 +6,16 @@
 .text-aligned {
   text-align: center;
 }
+
+.card-text {
+  font-weight: bold;
+}
+
+.margin {
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
+.card.space-down {
+  margin-bottom: 1rem;
+}

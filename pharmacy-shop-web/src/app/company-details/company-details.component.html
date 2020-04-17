@@ -1,9 +1,37 @@
-<div class="jumbotron">
-  <div class="card">
-    <div class="card-body">
-      <h1 class="card-title">{{company.companyName}}</h1>
-      <h5 class="card-text">Адрес : {{company.companyAddress}}</h5>
-      <h5 class="card-text">Телефон : {{company.companyPhoneNumber}}</h5>
+<div class="jumbotron margin">
+  <div class="row">
+    <div class="card text-aligned">
+      <div class="card-body">
+        <h1 class="card-title">{{company?.companyName}}</h1>
+        <h5 class="card-text">Адрес : {{company?.companyAddress}}</h5>
+        <h5 class="card-text">Телефон : {{company?.companyPhoneNumber}}</h5>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="form-group">
+      <h5 for="pharmClassSelect">Фармакологичен клас :</h5>
+      <select class="form-control" id="pharmClassSelect" (change)="filterMedicines($event)">
+        <option [ngValue]="undefined"></option>
+        <option [ngValue]="pharmClass?.classDescription" *ngFor="let pharmClass of company?.pharmClasses">{{pharmClass.classDescription}}</option>
+        <option [ngValue]="'-всички-'">-всички-</option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="showMedicines">
+    <h4 *ngIf="medicines.length === 0"> Няма налични лекарства за този клас.</h4>
+    <div class="row" *ngFor="let medicine of medicines">
+      <div class="card space-down">
+        <div class="card-body">
+          <h3 class="card-title">{{medicine.trademark}}</h3>
+          <p class="card-text">INN : {{medicine.inn}}</p>
+          <p class="card-text">Ефект : {{medicine.pharmacologicalEffect}}</p>
+          <p class="card-text">Цена : {{medicine.medicinePrice}}</p>
+          <a href="#" class="btn btn-primary">Поръчай!</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

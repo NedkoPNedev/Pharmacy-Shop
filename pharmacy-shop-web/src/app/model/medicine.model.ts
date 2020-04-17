@@ -1,5 +1,5 @@
 export interface IMedicine {
-  INN?: string;
+  inn?: string;
   trademark?: string;
   pharmacologicalEffect?: string;
   medicinePrice?: number;
