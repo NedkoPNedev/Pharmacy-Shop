@@ -21,7 +21,7 @@ public class Medicine {
     @Column(name = "price")
     private Double medicinePrice;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "pharmacological_class_id")
     private PharmClass pharmClass;

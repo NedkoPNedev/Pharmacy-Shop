@@ -16,6 +16,11 @@
   margin-right: 17%;
 }
 
-.card.space-down {
+.card.card-style {
   margin-bottom: 1rem;
+  width: 65%;
+}
+
+#medicine_image {
+  width: 30%;
 }

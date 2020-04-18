@@ -45,11 +45,9 @@ export class CompanyDetailsComponent implements OnInit {
           phClass.medicines.forEach(medicine => this.medicines?.push(medicine));
         });
       } else {
-        console.log('vliza tuk : ' + pharmClassDescription);
         const selectedClass: IPharmClass =
           this.company.pharmClasses.filter(phClass => phClass.classDescription === pharmClassDescription)[0];
 
-        console.log(selectedClass?.classDescription);
         selectedClass?.medicines.forEach(medicine => this.medicines?.push(medicine));
       }
     }

@@ -22,7 +22,7 @@ public class PharmClass {
     @OneToMany(mappedBy = "pharmClass")
     private Set<Medicine> medicines;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "company_name")
     private Company pharmCompany;
