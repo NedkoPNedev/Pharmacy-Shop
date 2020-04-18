@@ -15,3 +15,8 @@
 .space-between {
   justify-content: space-between;
 }
+
+#medicineButton {
+  font-size: xx-large;
+  margin-top: 1.5rem;
+}
