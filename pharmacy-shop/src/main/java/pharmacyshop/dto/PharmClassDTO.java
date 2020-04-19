@@ -13,6 +13,8 @@ public class PharmClassDTO {
 
     private String classDescription;
 
+    private String pharmQuestion;
+
     private Set<Medicine> medicines;
 
     public PharmClassDTO(PharmClass pharmClass) {
@@ -20,6 +22,7 @@ public class PharmClassDTO {
         this.className = pharmClass.getClassName();
         this.classDescription = pharmClass.getClassDescription();
         this.medicines = pharmClass.getMedicines();
+        this.pharmQuestion = pharmClass.getPharmQuestion();
     }
 
     public int getId() {
@@ -52,5 +55,13 @@ public class PharmClassDTO {
 
     public void setMedicines(Set<Medicine> medicines) {
         this.medicines = medicines;
+    }
+
+    public String getPharmQuestion() {
+        return pharmQuestion;
+    }
+
+    public void setPharmQuestion(String pharmQuestion) {
+        this.pharmQuestion = pharmQuestion;
     }
 }

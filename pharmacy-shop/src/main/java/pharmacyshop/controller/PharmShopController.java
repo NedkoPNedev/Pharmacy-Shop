@@ -1,6 +1,7 @@
 package pharmacyshop.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,5 +39,13 @@ public class PharmShopController {
         log.info("Request for resource company-info with parameter : " + companyName);
 
         return pharmShopService.getCompanyInfoByName(companyName);
+    }
+
+    @CrossOrigin
+    @GetMapping("/pharmclass-questions")
+    public Set<String> getAllPharmClassQuestions() {
+        log.info("Request for resource pharmclass-questions");
+
+        return pharmShopService.getAllPharmClassQuestions();
     }
 }

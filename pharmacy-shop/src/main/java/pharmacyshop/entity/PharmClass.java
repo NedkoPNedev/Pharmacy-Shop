@@ -19,6 +19,9 @@ public class PharmClass {
     @Column(name = "class_description")
     private String classDescription;
 
+    @Column(name = "pharm_question")
+    private String pharmQuestion;
+
     @OneToMany(mappedBy = "pharmClass")
     private Set<Medicine> medicines;
 
@@ -67,5 +70,13 @@ public class PharmClass {
 
     public void setPharmCompany(Company pharmCompany) {
         this.pharmCompany = pharmCompany;
+    }
+
+    public String getPharmQuestion() {
+        return pharmQuestion;
+    }
+
+    public void setPharmQuestion(String pharmQuestion) {
+        this.pharmQuestion = pharmQuestion;
     }
 }
