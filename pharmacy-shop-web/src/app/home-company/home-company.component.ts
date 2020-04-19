@@ -25,4 +25,8 @@ export class HomeCompanyComponent implements OnInit {
     navigateToCompanyDetails(companyName: string) {
       this.router.navigate(['company-details/' + companyName]);
     }
+
+    navigateToPharmClassDetails() {
+        this.router.navigate(['pharmclass-details']);
+    }
 }

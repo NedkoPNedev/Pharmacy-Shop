@@ -8,13 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { HomeCompanyComponent } from './home-company/home-company.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import {FormsModule} from '@angular/forms';
+import { PharmclassDetailsComponent } from './pharmclass-details/pharmclass-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeCompanyComponent,
-    CompanyDetailsComponent
+    CompanyDetailsComponent,
+    PharmclassDetailsComponent
   ],
   imports: [
     BrowserModule,

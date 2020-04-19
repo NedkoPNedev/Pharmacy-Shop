@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CompanyDetailsComponent} from './company-details/company-details.component';
 import {HomeCompanyComponent} from './home-company/home-company.component';
+import {PharmclassDetailsComponent} from './pharmclass-details/pharmclass-details.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/companies-home',
     pathMatch: 'full'
+  },
+  {
+    path: 'pharmclass-details',
+    component: PharmclassDetailsComponent
   }
 ];
 
