@@ -11,3 +11,13 @@
 #pharm-img {
   margin: 2rem;
 }
+
+.caption-text {
+  text-align: center;
+  font-size: 175%;
+}
+
+.wrapper:hover {
+  opacity: 50%;
+  cursor: pointer;
+}

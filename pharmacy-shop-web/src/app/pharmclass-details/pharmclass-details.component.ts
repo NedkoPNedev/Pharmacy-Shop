@@ -16,4 +16,8 @@ export class PharmclassDetailsComponent implements OnInit {
         this.pharmclassDetailsService.getPharmClassQuestions()
           .subscribe(res => { console.log(res); this.pharmClassQuestions = res.body; });
     }
+
+    navigateToMedicinesDetails(question: string) {
+        console.log(question);
+    }
 }
