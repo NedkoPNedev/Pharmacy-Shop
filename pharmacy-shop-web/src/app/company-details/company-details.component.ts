@@ -20,7 +20,6 @@ export class CompanyDetailsComponent implements OnInit {
                 private router: ActivatedRoute) { }
 
     ngOnInit(): void {
-      this.showMedicines = false;
       this.router.paramMap.subscribe(
         params => {
           const companyName: string = params.get('name');
@@ -28,6 +27,7 @@ export class CompanyDetailsComponent implements OnInit {
             res => {
               console.log(res.body);
               this.company = res.body;
+              this.filterMedicines({ target: { value: '-всички-' } });
             });
       });
     }

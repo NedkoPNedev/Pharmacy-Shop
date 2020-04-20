@@ -16,7 +16,7 @@
   <div class="row">
     <div class="form-group">
       <h5 for="pharmClassSelect">Фармакологичен клас :</h5>
-      <select class="form-control" id="pharmClassSelect" (change)="filterMedicines($event)">
+      <select class="form-control" id="pharmClassSelect" [value]="'-всички-'" (change)="filterMedicines($event)">
         <option [ngValue]="undefined"></option>
         <option [ngValue]="pharmClass?.classDescription" *ngFor="let pharmClass of company?.pharmClasses">{{pharmClass.classDescription}}</option>
         <option [ngValue]="'-всички-'">-всички-</option>
