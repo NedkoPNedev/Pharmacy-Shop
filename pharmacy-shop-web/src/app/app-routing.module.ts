@@ -14,6 +14,10 @@ const routes: Routes = [
     component: HomeCompanyComponent
   },
   {
+    path: 'companies-home/:question',
+    component: PharmclassDetailsComponent // TO DO
+  },
+  {
     path: '',
     redirectTo: '/companies-home',
     pathMatch: 'full'
