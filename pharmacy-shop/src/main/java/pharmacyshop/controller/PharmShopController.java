@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pharmacyshop.dto.CompanyDTO;
+import pharmacyshop.dto.MedicineDTO;
 import pharmacyshop.service.PharmShopService;
 
 @RestController
@@ -18,7 +19,7 @@ public class PharmShopController {
 
     private final Logger log = LoggerFactory.getLogger(PharmShopController.class);
 
-    private PharmShopService pharmShopService;
+    private final PharmShopService pharmShopService;
 
     @Autowired
     public PharmShopController(PharmShopService pharmShopService) {
@@ -47,5 +48,15 @@ public class PharmShopController {
         log.info("Request for resource pharmclass-questions");
 
         return pharmShopService.getAllPharmClassQuestions();
+    }
+
+    @CrossOrigin
+    @GetMapping("/medicines/{pharmclass-question}")
+    public List<MedicineDTO> getMedicinesForGivenPharmclass(
+            @PathVariable("pharmclass-question") String pharmClassQuestion) {
+
+        log.info("Request for resource medicines{pharmclass-question} with parameter : " + pharmClassQuestion);
+
+        return pharmShopService.getMedicinesForGivenPharmclassQuestion(pharmClassQuestion);
     }
 }

@@ -9,6 +9,8 @@ public class MedicineDTO {
 
     private String trademark;
 
+    private String companyName;
+
     private String pharmacologicalEffect;
 
     private Double medicinePrice;
@@ -50,5 +52,13 @@ public class MedicineDTO {
 
     public void setMedicinePrice(Double medicinePrice) {
         this.medicinePrice = medicinePrice;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }
