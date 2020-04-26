@@ -10,7 +10,7 @@
           Оплаквания
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="comanies-home/ + {{pharmClassQuestion.trim()}}" *ngFor="let pharmClassQuestion of pharmClassQuestions">
+          <a class="dropdown-item" href="medicines/{{pharmClassQuestion}}" *ngFor="let pharmClassQuestion of pharmClassQuestions">
             {{pharmClassQuestion}}?</a>
         </div>
       </li>

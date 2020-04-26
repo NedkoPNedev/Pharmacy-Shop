@@ -1,0 +1,38 @@
+.margin {
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
+.card.card-style {
+  margin-bottom: 1rem;
+  width: 65%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-text {
+  font-weight: bold;
+}
+
+#question-img {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+h3.medicine-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#medicine_image {
+  width: 30%;
+}
+
+#company-ref {
+  font-size: 1rem;
+  font-weight: bold;
+}

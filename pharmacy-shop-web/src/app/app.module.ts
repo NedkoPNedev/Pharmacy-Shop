@@ -9,6 +9,7 @@ import { HomeCompanyComponent } from './home-company/home-company.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import {FormsModule} from '@angular/forms';
 import { PharmclassDetailsComponent } from './pharmclass-details/pharmclass-details.component';
+import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PharmclassDetailsComponent } from './pharmclass-details/pharmclass-deta
     HeaderComponent,
     HomeCompanyComponent,
     CompanyDetailsComponent,
-    PharmclassDetailsComponent
+    PharmclassDetailsComponent,
+    MedicineDetailsComponent
   ],
   imports: [
     BrowserModule,

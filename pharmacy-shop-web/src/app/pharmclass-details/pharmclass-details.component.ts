@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PharmclassDetailsService} from './pharmclass-details.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pharmclass-details',
@@ -10,7 +11,7 @@ export class PharmclassDetailsComponent implements OnInit {
 
     pharmClassQuestions: string[];
 
-    constructor(private pharmclassDetailsService: PharmclassDetailsService) { }
+    constructor(private pharmclassDetailsService: PharmclassDetailsService, private router: Router) { }
 
     ngOnInit(): void {
         this.pharmclassDetailsService.getPharmClassQuestions()
@@ -18,6 +19,6 @@ export class PharmclassDetailsComponent implements OnInit {
     }
 
     navigateToMedicinesDetails(question: string) {
-        console.log(question);
+        this.router.navigate(['medicines/' + question]);
     }
 }
