@@ -24,8 +24,6 @@
     </div>
   </div>
   <div *ngIf="showMedicines">
-    <div *ngFor="let medicine of medicines">
-      <app-medicine-card [medicine]="medicine"></app-medicine-card>
-    </div>
+      <app-medicine-card *ngFor="let medicine of medicines" [medicine]="medicine"></app-medicine-card>
   </div>
 </div>

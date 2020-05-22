@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HeaderService} from './header.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,11 @@ import {HeaderService} from './header.service';
 })
 export class HeaderComponent implements OnInit {
 
-    pharmClassQuestions: string[];
+    pharmClassQuestions$: Observable<string[]>;
 
     constructor(private headerService: HeaderService) { }
 
     ngOnInit(): void {
-        this.headerService.getAllPharmClassQuestions().subscribe(res => this.pharmClassQuestions = res.body);
+        this.pharmClassQuestions$ = this.headerService.getAllPharmClassQuestions();
     }
 }

@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {GlobalConstants} from '../shared/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
 
-    private pharmClassQuestionsUrl = 'http://localhost:8085/pharmclass-questions/';
+    private pharmClassQuestionsUrl =  GlobalConstants.API_URL + 'pharmclass-questions/';
 
     constructor(private http: HttpClient) { }
 
-    getAllPharmClassQuestions() : Observable<HttpResponse<string[]>> {
-        return this.http.get<string[]>(this.pharmClassQuestionsUrl, { observe: 'response' });
+    getAllPharmClassQuestions() : Observable<string[]> {
+        return this.http.get<string[]>(this.pharmClassQuestionsUrl);
     }
 }

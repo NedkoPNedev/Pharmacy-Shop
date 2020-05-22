@@ -10,8 +10,8 @@
           Оплаквания
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="medicines/{{pharmClassQuestion}}" *ngFor="let pharmClassQuestion of pharmClassQuestions">
-            {{pharmClassQuestion}}?</a>
+          <a class="dropdown-item" href="medicines/{{pharmClassQuestion}}"
+             *ngFor="let pharmClassQuestion of pharmClassQuestions$ | async">{{pharmClassQuestion}}?</a>
         </div>
       </li>
     </ul>

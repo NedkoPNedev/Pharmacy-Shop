@@ -1,8 +1,6 @@
 <div class="jumbotron margin">
   <img id="question-img" class="card-img" [src]='"assets/images/" + question + ".jpg"' alt="Question image">
   <h3 class="medicine-title"> {{ getMedicinesAgainstTitle(question) }} </h3>
-  <div *ngFor="let medicine of medicines">
-    <app-medicine-card [medicine]="medicine"></app-medicine-card>
-  </div>
+  <app-medicine-card *ngFor="let medicine of medicines$ | async" [medicine]="medicine"></app-medicine-card>
 </div>
 

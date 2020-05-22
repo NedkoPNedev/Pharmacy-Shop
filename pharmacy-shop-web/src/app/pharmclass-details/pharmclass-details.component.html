@@ -1,5 +1,5 @@
 <div class="jumbotron margin">
-  <figure class="figure justify-content-center" *ngFor="let question of pharmClassQuestions">
+  <figure class="figure justify-content-center" *ngFor="let question of pharmClassQuestions$ | async">
     <div class="wrapper">
       <img id="pharm-img" [src]='"assets/images/" + question + ".jpg"' class="figure-img img-fluid rounded"
            (click)="navigateToMedicinesDetails(question)" alt="Question image">

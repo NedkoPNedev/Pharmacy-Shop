@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HomeCompanyService} from './home-company.service';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home-company',
@@ -9,17 +10,12 @@ import {Router} from '@angular/router';
 })
 export class HomeCompanyComponent implements OnInit {
 
-    companyNames: string[];
+    companyNames$ : Observable<string[]>;
 
-    constructor(private homeCompanyService: HomeCompanyService,
-                private router: Router) { }
+    constructor(private homeCompanyService: HomeCompanyService, private router: Router) { }
 
     ngOnInit(): void {
-        this.homeCompanyService.getCompanyNames()
-          .subscribe(res => {
-            console.log(res);
-            this.companyNames = res.body;
-          });
+        this.companyNames$ = this.homeCompanyService.getCompanyNames();
     }
 
     navigateToCompanyDetails(companyName: string) {

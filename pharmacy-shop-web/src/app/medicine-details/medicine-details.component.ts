@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MedicineDetailsService} from './medicine-details.service';
-import {IMedicine} from '../model/medicine.model';
+import {IMedicine} from '../shared/model/medicine.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-medicine-details',
@@ -11,17 +12,13 @@ import {IMedicine} from '../model/medicine.model';
 export class MedicineDetailsComponent implements OnInit {
 
     question: string;
-    medicines: IMedicine[];
+    medicines$: Observable<IMedicine[]>;
 
     constructor(private router: ActivatedRoute, private medicineDetailsService: MedicineDetailsService) { }
 
     ngOnInit(): void {
-      this.router.paramMap.subscribe(
-        params => {
-          this.question = params.get('question');
-          this.medicineDetailsService.getAllMedicinesForGivenQuestion(this.question)
-            .subscribe(res => {console.log(res); this.medicines = res.body});
-        });
+      this.question = this.router.snapshot.params.question;
+      this.medicines$ = this.medicineDetailsService.getAllMedicinesForGivenQuestion(this.question);
     }
 
   getMedicinesAgainstTitle(question: string) {

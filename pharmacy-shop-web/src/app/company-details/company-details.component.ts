@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {CompanyDetailsService} from './company-details.service';
-import {ICompany} from '../model/company.model';
+import {ICompany} from '../shared/model/company.model';
 import {ActivatedRoute} from '@angular/router';
-import {IPharmClass} from '../model/pharm-class.model';
-import {IMedicine} from '../model/medicine.model';
+import {IPharmClass} from '../shared/model/pharm-class.model';
+import {IMedicine} from '../shared/model/medicine.model';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-company-details',
@@ -17,20 +18,17 @@ export class CompanyDetailsComponent implements OnInit {
     medicines: IMedicine[];
     showMedicines: boolean;
 
-    constructor(private companyDetailsService: CompanyDetailsService,
-                private router: ActivatedRoute) { }
+    constructor(private companyDetailsService: CompanyDetailsService, private router: ActivatedRoute) { }
 
     ngOnInit(): void {
-      this.router.paramMap.subscribe(
-        params => {
-          const companyName: string = params.get('name');
-          this.companyDetailsService.getCompanyInfo(companyName).subscribe(
-            res => {
-              console.log(res.body);
-              this.company = res.body;
-              this.filterMedicines({ target: { value: this.ALL_MEDICINE} });
-            });
-      });
+      const companyName: string = this.router.snapshot.params.name;
+
+      this.companyDetailsService.getCompanyInfo(companyName).subscribe(
+        res => {
+          console.log(res);
+          this.company = res;
+          this.filterMedicines({ target: { value: this.ALL_MEDICINE} });
+        });
     }
 
     filterMedicines(event: any) {
