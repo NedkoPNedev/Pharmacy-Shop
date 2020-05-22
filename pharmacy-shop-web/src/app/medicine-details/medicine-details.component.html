@@ -1,20 +1,8 @@
 <div class="jumbotron margin">
-  <img id="question-img" class="card-img" [src]='"assets/images/" + question + ".jpg"'>
-  <h3 class="medicine-title">Лекарства против {{question}} : </h3>
-  <div class="row" *ngFor="let medicine of medicines">
-    <div class="card card-style">
-      <img id="medicine_image" class="card-img" [src]='"assets/images/" + medicine.trademark + ".jpg"'>
-      <div class="card-body">
-        <h3 class="card-title">{{medicine.trademark}}</h3>
-        <p class="card-text">Компания :
-          <a id="company-ref" href="company-details/{{medicine.companyName}}">{{medicine.companyName}}</a>
-        </p>
-        <p class="card-text">INN : {{medicine.inn}}</p>
-        <p class="card-text">Ефект : {{medicine.pharmacologicalEffect}}</p>
-        <p class="card-text">Цена : {{medicine.medicinePrice}} лв.</p>
-        <a class="btn btn-primary text-white">Поръчай!</a>
-      </div>
-    </div>
+  <img id="question-img" class="card-img" [src]='"assets/images/" + question + ".jpg"' alt="Question image">
+  <h3 class="medicine-title"> {{ getMedicinesAgainstTitle(question) }} </h3>
+  <div *ngFor="let medicine of medicines">
+    <app-medicine-card [medicine]="medicine"></app-medicine-card>
   </div>
 </div>
 

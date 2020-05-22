@@ -1,24 +1,17 @@
 <div class="jumbotron">
-
   <h1 class="display-4 center-aligned">Онлайн дрогерия</h1>
-
   <p class="lead center-aligned">Тук се предлагат само лекарства без лекарско предписание.</p>
-
   <hr class="my-4">
-
   <div class="row space-between">
     <div class="card card-aligned"  *ngFor="let companyName of companyNames">
-      <img class="card-img-top" [src]='"assets/images/" + companyName + ".jpg"'>
+      <img class="card-img-top" [src]='"assets/images/" + companyName + ".jpg"' alt="Company logo image">
       <hr class="my-2">
       <div class="card-body col text-center">
         <button class="btn btn-primary" (click)="navigateToCompanyDetails(companyName)">Поръчай лекарства!</button>
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <h1 class="center-aligned">- Ars longa vita brevis. -</h1>
+  <h1 class="center-aligned latin-text">- Ars longa vita brevis. -</h1>
   <p class="center-aligned">- Животът е кратък, изкуството е вечно. -</p>
   <div class="row justify-content-center">
     <button class="btn btn-info" id="medicineButton" (click)="navigateToPharmClassDetails()"> Към лекарства!</button>

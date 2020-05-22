@@ -1,0 +1,27 @@
+.card-style {
+  margin-bottom: 1rem;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-text {
+  font-weight: bold;
+}
+
+#medicine_image {
+  width: 30%;
+}
+
+#company-ref {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+}
+
+.price {
+  color: red;
+}

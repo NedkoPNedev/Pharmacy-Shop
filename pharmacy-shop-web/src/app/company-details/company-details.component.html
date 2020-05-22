@@ -8,33 +8,24 @@
       </div>
     </div>
     <div class="col-4">
-      <img [src]='"assets/images/" + company?.companyName + ".jpg"'>
+      <img [src]='"assets/images/" + company?.companyName + ".jpg"' alt="Company logo image">
     </div>
   </div>
-  <br>
-  <br>
   <div class="row">
-    <div class="form-group">
-      <h5 for="pharmClassSelect">Фармакологичен клас :</h5>
+    <div class="col-4">
+      <h5 id="pharmClass">Фармакологичен клас :</h5>
+    </div>
+    <div class="col-4">
       <select class="form-control" id="pharmClassSelect" [value]="'-всички-'" (change)="filterMedicines($event)">
         <option [ngValue]="undefined"></option>
         <option [ngValue]="pharmClass?.classDescription" *ngFor="let pharmClass of company?.pharmClasses">{{pharmClass.classDescription}}</option>
-        <option [ngValue]="'-всички-'">-всички-</option>
+        <option [ngValue]="ALL_MEDICINE">-всички-</option>
       </select>
     </div>
   </div>
   <div *ngIf="showMedicines">
-    <div class="row" *ngFor="let medicine of medicines">
-      <div class="card card-style">
-        <img id="medicine_image" class="card-img" [src]='"assets/images/" + medicine.trademark + ".jpg"'>
-        <div class="card-body">
-          <h3 class="card-title">{{medicine.trademark}}</h3>
-          <p class="card-text">INN : {{medicine.inn}}</p>
-          <p class="card-text">Ефект : {{medicine.pharmacologicalEffect}}</p>
-          <p class="card-text">Цена : {{medicine.medicinePrice}} лв.</p>
-          <a class="btn btn-primary text-white">Поръчай!</a>
-        </div>
-      </div>
+    <div *ngFor="let medicine of medicines">
+      <app-medicine-card [medicine]="medicine"></app-medicine-card>
     </div>
   </div>
 </div>

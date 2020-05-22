@@ -23,4 +23,8 @@ export class MedicineDetailsComponent implements OnInit {
             .subscribe(res => {console.log(res); this.medicines = res.body});
         });
     }
+
+  getMedicinesAgainstTitle(question: string) {
+    return (question.includes('слаб имунитет')) ? 'Хранителни добавки' : 'Лекарства против ' + question;
+  }
 }

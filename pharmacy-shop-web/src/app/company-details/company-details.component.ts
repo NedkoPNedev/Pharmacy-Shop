@@ -12,6 +12,7 @@ import {IMedicine} from '../model/medicine.model';
 })
 export class CompanyDetailsComponent implements OnInit {
 
+    ALL_MEDICINE =  '-всички-';
     company: ICompany;
     medicines: IMedicine[];
     showMedicines: boolean;
@@ -27,7 +28,7 @@ export class CompanyDetailsComponent implements OnInit {
             res => {
               console.log(res.body);
               this.company = res.body;
-              this.filterMedicines({ target: { value: '-всички-' } });
+              this.filterMedicines({ target: { value: this.ALL_MEDICINE} });
             });
       });
     }
@@ -40,7 +41,7 @@ export class CompanyDetailsComponent implements OnInit {
 
       if (pharmClassDescription.length === 0) {
         this.showMedicines = false;
-      } else if (pharmClassDescription === '-всички-') {
+      } else if (pharmClassDescription === this.ALL_MEDICINE) {
         this.company.pharmClasses.forEach(phClass => {
           phClass.medicines.forEach(medicine => this.medicines?.push(medicine));
         });

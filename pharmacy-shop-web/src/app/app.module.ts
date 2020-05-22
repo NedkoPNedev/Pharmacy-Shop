@@ -10,6 +10,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import {FormsModule} from '@angular/forms';
 import { PharmclassDetailsComponent } from './pharmclass-details/pharmclass-details.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
+import { MedicineCardComponent } from './medicine-card/medicine-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MedicineDetailsComponent } from './medicine-details/medicine-details.co
     HomeCompanyComponent,
     CompanyDetailsComponent,
     PharmclassDetailsComponent,
-    MedicineDetailsComponent
+    MedicineDetailsComponent,
+    MedicineCardComponent
   ],
   imports: [
     BrowserModule,
