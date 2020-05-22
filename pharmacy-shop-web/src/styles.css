@@ -1,1 +1,14 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+.jumbotron {
+  padding: 5em;
+  margin: 2em;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.center-aligned-text {
+  text-align: center;
+}

@@ -1,17 +1,3 @@
-.jumbotron {
-  padding: 5em;
-  margin: 2em;
-}
-
-.center-aligned {
-  text-align: center;
-}
-
-.card-aligned {
-  width: 18rem;
-  align-content: space-between;
-}
-
 .space-between {
   justify-content: space-between;
 }
